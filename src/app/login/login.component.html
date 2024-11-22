@@ -1,0 +1,63 @@
+<div class="grid">
+  <div class="col-6 col-offset-3 mt-6">
+    <p-card>
+      <form #loginForm="ngForm"  novalidate>
+        <div class="text-center">
+          <h2>Login</h2>
+        </div>
+        <p-divider></p-divider>
+
+        <!-- Email Input -->
+        <div class="flex flex-column gap-2">
+          <label for="email">Email</label>
+          <input
+            pInputText
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            aria-describedby="username-help"
+            [(ngModel)]="email"
+            name="email"
+            required
+          />
+          <!-- Email Validation Error -->
+          <div *ngIf="loginForm.submitted && !email" class="error-text">
+            Email is required.
+          </div>
+
+          <!-- Password Input -->
+          <label for="password">Password</label>
+          <input
+            pInputText
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+            aria-describedby="password-help"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
+          <!-- Password Validation Error -->
+          <div *ngIf="loginForm.submitted && !password" class="error-text">
+            Password is required.
+          </div>
+        </div>
+
+        <!-- Register Link -->
+        <div class="mt-1">
+          <a routerLink="../register">還沒有帳號?</a>
+        </div>
+
+        <p-divider></p-divider>
+
+        <!-- Submit Button -->
+        <div class="flex justify-content-center">
+          <p-button label="登入" severity="contrast" (onClick)="onLogin()" ></p-button>
+        </div>
+      </form>
+    </p-card>
+  </div>
+</div>
+
+
+
